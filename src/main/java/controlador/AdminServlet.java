@@ -8,10 +8,13 @@ import com.google.gson.Gson;
 
 import dao.AdminService;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import modelo.Characters;
+
+@WebServlet("/admin/characters")
 
 /**
  * Servlet implementation class AdminServlet
@@ -24,7 +27,6 @@ public class AdminServlet extends HttpServlet {
      */
     public AdminServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     private AdminService adminService;

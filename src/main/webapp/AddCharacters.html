@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="General.css">
+    <title>Add Character</title>
+</head>
+<body>
+    <h1>Añadir Personaje</h1>
+    <form id="addCharacterForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="univers">Universe:</label>
+        <input type="text" id="univers" name="univers"><br><br>
+
+        <label for="health">Health:</label>
+        <input type="text" id="health" name="health"><br><br>
+
+        <label for="attack">Attack:</label>
+        <input type="text" id="attack" name="attack"><br><br>
+
+        <label for="defense">Defense:</label>
+        <input type="text" id="defense" name="defense"><br><br>
+
+        <label for="speed">Spped:</label>
+        <input type="text" id="speed" name="speed"><br><br>
+
+        <label for="stamina">Stamina:</label>
+        <input type="text" id="stamina" name="stamina"><br><br>
+
+        <label for="intelligence">Inteligencia:</label>
+        <input type="text" id="intelligence" name="intelligence"><br><br>
+
+        <label for="special">Especial:</label>
+        <input type="text" id="special" name="special"><br><br>
+
+        <button type="submit">Add Character</button>
+    </form>
+
+    <script>
+        document.getElementById('addCharacterForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const characterData = {
+                nameCharacter: document.getElementById('name').value,
+                universCharacter: document.getElementById('univers').value,
+                healthharacter: document.getElementById('health').value,
+                attackCharacter: document.getElementById('attack').value,
+                defenseCharacter: document.getElementById('defense').value,
+                speedCharacter: document.getElementById('speed').value,
+                staminaCharacter: document.getElementById('stamina').value,
+                intelligenceCharacter: document.getElementById('intelligence').value,
+                specialCharacter: document.getElementById('special').value,
+            };
+
+            fetch('AdminServlet', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(characterData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Character added successfully!');
+                    // Optionally, redirect or update the UI
+                } else {
+                    alert('Failed to add character.');
+                }
+            })
+            .catch(error => console.error('Error adding character:', error));
+        });
+    </script>
+</body>
+</html>

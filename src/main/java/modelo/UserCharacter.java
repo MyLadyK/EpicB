@@ -4,7 +4,7 @@ public class UserCharacter {
 	
 	private int idUserCharacter;
 	private User owner;
-    private Character baseCharacter;
+    private Characters baseCharacter;
 	private double healthCharacterMod;
 	private double attackCharacterMod;
 	private double defenseCharacterMod;
@@ -35,7 +35,7 @@ public class UserCharacter {
 	 * @param intelligenceCharacterMod
 	 * @param specialCharacterMod
 	 */
-	public UserCharacter(int idUserCharacter, User owner, Character baseCharacter, double healthCharacterMod,
+	public UserCharacter(int idUserCharacter, User owner, Characters baseCharacter, double healthCharacterMod,
 			double attackCharacterMod, double defenseCharacterMod, double speedCharacterMod, double staminaCharacterMod,
 			double intelligenceCharacterMod, double specialCharacterMod, int timesUsed) {
 		super();
@@ -69,11 +69,11 @@ public class UserCharacter {
 		this.owner = owner;
 	}
 
-	public Character getBaseCharacter() {
+	public Characters getBaseCharacter() {
 		return baseCharacter;
 	}
 
-	public void setBaseCharacter(Character baseCharacter) {
+	public void setBaseCharacter(Characters baseCharacter) {
 		this.baseCharacter = baseCharacter;
 	}
 

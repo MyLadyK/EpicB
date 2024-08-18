@@ -1,6 +1,6 @@
 package modelo;
 
-public class Character {
+public class Characters {
 	
 	private int idCharacter;
 	private String nameCharacter;
@@ -18,7 +18,7 @@ public class Character {
 	 * Empty Constructor
 	 */
 	
-	private Character() {
+	public Characters() {
 		
 	}
 	
@@ -37,11 +37,38 @@ public class Character {
 	 * @param specialCharacter
 	 */
 	
-	private Character(int idCharacter, String nameCharacter, String universCharacter, double healthCharacter,
+	public Characters(int idCharacter, String nameCharacter, String universCharacter, double healthCharacter,
 			double attackCharacter, double defenseCharacter, double speedCharacter, double staminaCharacter,
 			double intelligenceCharacter, double specialCharacter) {
 		super();
 		this.idCharacter = idCharacter;
+		this.nameCharacter = nameCharacter;
+		this.universCharacter = universCharacter;
+		this.healthCharacter = healthCharacter;
+		this.attackCharacter = attackCharacter;
+		this.defenseCharacter = defenseCharacter;
+		this.speedCharacter = speedCharacter;
+		this.staminaCharacter = staminaCharacter;
+		this.intelligenceCharacter = intelligenceCharacter;
+		this.specialCharacter = specialCharacter;
+	}
+	
+	/**
+	 * Full Constuctor without idCharacter to be used by the servlets
+	 * @param nameCharacter
+	 * @param universCharacter
+	 * @param healthCharacter
+	 * @param attackCharacter
+	 * @param defenseCharacter
+	 * @param speedCharacter
+	 * @param staminaCharacter
+	 * @param intelligenceCharacter
+	 * @param specialCharacter
+	 */
+	public Characters(String nameCharacter, String universCharacter, double healthCharacter,
+			double attackCharacter, double defenseCharacter, double speedCharacter, double staminaCharacter,
+			double intelligenceCharacter, double specialCharacter) {
+		super();
 		this.nameCharacter = nameCharacter;
 		this.universCharacter = universCharacter;
 		this.healthCharacter = healthCharacter;
@@ -135,14 +162,12 @@ public class Character {
 
 	@Override
 	public String toString() {
-		return "Character [idCharacter=" + idCharacter + ", nameCharacter=" + nameCharacter + ", universCharacter="
+		return "Characters [idCharacter=" + idCharacter + ", nameCharacter=" + nameCharacter + ", universCharacter="
 				+ universCharacter + ", healthCharacter=" + healthCharacter + ", attackCharacter=" + attackCharacter
 				+ ", defenseCharacter=" + defenseCharacter + ", speedCharacter=" + speedCharacter
 				+ ", staminaCharacter=" + staminaCharacter + ", intelligenceCharacter=" + intelligenceCharacter
 				+ ", specialCharacter=" + specialCharacter + "]";
 	}
-	
-	
 	
 	
 

@@ -4,6 +4,7 @@ public class Characters {
 	
 	private int idCharacter;
 	private String nameCharacter;
+	private String categoryCharacter;
 	private String universCharacter;
 	private double healthCharacter;
 	private double attackCharacter;
@@ -12,6 +13,7 @@ public class Characters {
 	private double staminaCharacter;
 	private double intelligenceCharacter;
 	private double specialCharacter;
+	private String imageUrl;
 	
 	
 	/**
@@ -37,12 +39,13 @@ public class Characters {
 	 * @param specialCharacter
 	 */
 	
-	public Characters(int idCharacter, String nameCharacter, String universCharacter, double healthCharacter,
+	public Characters(int idCharacter, String nameCharacter, String categoryCharacter, String universCharacter, double healthCharacter,
 			double attackCharacter, double defenseCharacter, double speedCharacter, double staminaCharacter,
-			double intelligenceCharacter, double specialCharacter) {
+			double intelligenceCharacter, double specialCharacter, String imageUrl) {
 		super();
 		this.idCharacter = idCharacter;
 		this.nameCharacter = nameCharacter;
+		this.categoryCharacter =categoryCharacter;
 		this.universCharacter = universCharacter;
 		this.healthCharacter = healthCharacter;
 		this.attackCharacter = attackCharacter;
@@ -51,6 +54,7 @@ public class Characters {
 		this.staminaCharacter = staminaCharacter;
 		this.intelligenceCharacter = intelligenceCharacter;
 		this.specialCharacter = specialCharacter;
+		this.imageUrl = imageUrl;
 	}
 	
 	/**
@@ -65,11 +69,12 @@ public class Characters {
 	 * @param intelligenceCharacter
 	 * @param specialCharacter
 	 */
-	public Characters(String nameCharacter, String universCharacter, double healthCharacter,
+	public Characters(String nameCharacter, String categoryCharacter, String universCharacter, double healthCharacter,
 			double attackCharacter, double defenseCharacter, double speedCharacter, double staminaCharacter,
-			double intelligenceCharacter, double specialCharacter) {
+			double intelligenceCharacter, double specialCharacter, String imageUrl) {
 		super();
 		this.nameCharacter = nameCharacter;
+		this.categoryCharacter = categoryCharacter;
 		this.universCharacter = universCharacter;
 		this.healthCharacter = healthCharacter;
 		this.attackCharacter = attackCharacter;
@@ -78,6 +83,7 @@ public class Characters {
 		this.staminaCharacter = staminaCharacter;
 		this.intelligenceCharacter = intelligenceCharacter;
 		this.specialCharacter = specialCharacter;
+		this.imageUrl = imageUrl;
 	}
 
 	public int getIdCharacter() {
@@ -94,6 +100,14 @@ public class Characters {
 
 	public void setNameCharacter(String nameCharacter) {
 		this.nameCharacter = nameCharacter;
+	}
+
+	public String getCategoryCharacter() {
+		return categoryCharacter;
+	}
+
+	public void setCategoryCharacter(String categoryCharacter) {
+		this.categoryCharacter = categoryCharacter;
 	}
 
 	public String getUniversCharacter() {
@@ -160,15 +174,12 @@ public class Characters {
 		this.specialCharacter = specialCharacter;
 	}
 
-	@Override
-	public String toString() {
-		return "Characters [idCharacter=" + idCharacter + ", nameCharacter=" + nameCharacter + ", universCharacter="
-				+ universCharacter + ", healthCharacter=" + healthCharacter + ", attackCharacter=" + attackCharacter
-				+ ", defenseCharacter=" + defenseCharacter + ", speedCharacter=" + speedCharacter
-				+ ", staminaCharacter=" + staminaCharacter + ", intelligenceCharacter=" + intelligenceCharacter
-				+ ", specialCharacter=" + specialCharacter + "]";
+	public String getImageUrl() {
+		return imageUrl;
 	}
-	
-	
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
 }

@@ -4,37 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="General.css">
-    <title>Add Character</title>
+    <title>Nuevo Personaje</title>
 </head>
 <body>
     <h1>Añadir Personaje</h1>
-    <form id="addCharacterForm">
+    <form id="addCharacterForm" enctype="multipart/form-data">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="category">Categoría:</label>
+        <input type="text" id="category" name="category" required><br><br>
 
         <label for="univers">Universe:</label>
-        <input type="text" id="univers" name="univers"><br><br>
+        <input type="text" id="univers" name="univers" required><br><br>
 
         <label for="health">Health:</label>
-        <input type="text" id="health" name="health"><br><br>
+        <input type="number" id="health" name="health" min="0" step="0.1" required><br><br>
 
         <label for="attack">Attack:</label>
-        <input type="text" id="attack" name="attack"><br><br>
+        <input type="number" id="attack" name="attack" min="0" step="0.1" required><br><br>
 
         <label for="defense">Defense:</label>
-        <input type="text" id="defense" name="defense"><br><br>
+        <input type="number" id="defense" name="defense" min="0" step="0.1" required><br><br>
 
-        <label for="speed">Spped:</label>
-        <input type="text" id="speed" name="speed"><br><br>
+        <label for="speed">Speed:</label>
+        <input type="number" id="speed" name="speed" min="0" step="0.1" required><br><br>
 
         <label for="stamina">Stamina:</label>
-        <input type="text" id="stamina" name="stamina"><br><br>
+        <input type="number" id="stamina" name="stamina" min="0" step="0.1" required><br><br>
 
-        <label for="intelligence">Inteligencia:</label>
-        <input type="text" id="intelligence" name="intelligence"><br><br>
+        <label for="intelligence">Intelligence:</label>
+        <input type="number" id="intelligence" name="intelligence" min="0" step="0.1" required><br><br>
 
-        <label for="special">Especial:</label>
-        <input type="text" id="special" name="special"><br><br>
+        <label for="special">Special:</label>
+        <input type="number" id="special" name="special" min="0" step="0.1" required><br><br>
+        
+        <label for="image">Imagen del Personaje:</label>
+        <input type="file" id="image" name="image" required><br><br>
 
         <button type="submit">Add Character</button>
     </form>
@@ -43,24 +49,11 @@
         document.getElementById('addCharacterForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            const characterData = {
-                nameCharacter: document.getElementById('name').value,
-                universCharacter: document.getElementById('univers').value,
-                healthharacter: document.getElementById('health').value,
-                attackCharacter: document.getElementById('attack').value,
-                defenseCharacter: document.getElementById('defense').value,
-                speedCharacter: document.getElementById('speed').value,
-                staminaCharacter: document.getElementById('stamina').value,
-                intelligenceCharacter: document.getElementById('intelligence').value,
-                specialCharacter: document.getElementById('special').value,
-            };
+            const formData = new FormData(this); // Utiliza FormData para manejar archivos y otros datos del formulario
 
             fetch('AdminServlet', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(characterData)
+                body: formData
             })
             .then(response => {
                 if (response.ok) {

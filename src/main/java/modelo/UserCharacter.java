@@ -12,6 +12,7 @@ public class UserCharacter {
 	private double staminaCharacterMod;
 	private double intelligenceCharacterMod;
 	private double specialCharacterMod;
+	private String imageUrl;
 	private int timesUsed;
 	
 	/**
@@ -37,7 +38,7 @@ public class UserCharacter {
 	 */
 	public UserCharacter(int idUserCharacter, User owner, Characters baseCharacter, double healthCharacterMod,
 			double attackCharacterMod, double defenseCharacterMod, double speedCharacterMod, double staminaCharacterMod,
-			double intelligenceCharacterMod, double specialCharacterMod, int timesUsed) {
+			double intelligenceCharacterMod, double specialCharacterMod, String imageUrl, int timesUsed) {
 		super();
 		this.idUserCharacter = idUserCharacter;
 		this.owner = owner;
@@ -49,6 +50,7 @@ public class UserCharacter {
 		this.staminaCharacterMod = staminaCharacterMod;
 		this.intelligenceCharacterMod = intelligenceCharacterMod;
 		this.specialCharacterMod = specialCharacterMod;
+		this.imageUrl = imageUrl;
 		this.timesUsed = timesUsed;
 	}
 
@@ -133,6 +135,14 @@ public class UserCharacter {
 		this.specialCharacterMod = specialCharacterMod;
 	}
 	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	public int getTimesUsed() {
 		return timesUsed;
 	}
@@ -141,16 +151,5 @@ public class UserCharacter {
 		this.timesUsed = timesUsed;
 	}
 
-	@Override
-	public String toString() {
-		return "UserCharacter [idUserCharacter=" + idUserCharacter + ", owner=" + owner + ", baseCharacter="
-				+ baseCharacter + ", healthCharacterMod=" + healthCharacterMod + ", attackCharacterMod="
-				+ attackCharacterMod + ", defenseCharacterMod=" + defenseCharacterMod + ", speedCharacterMod="
-				+ speedCharacterMod + ", staminaCharacterMod=" + staminaCharacterMod + ", intelligenceCharacterMod="
-				+ intelligenceCharacterMod + ", specialCharacterMod=" + specialCharacterMod + ", timesUsed=" + timesUsed
-				+ "]";
-	}
-
 	
-
 }

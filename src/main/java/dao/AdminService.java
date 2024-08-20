@@ -14,18 +14,20 @@ public class AdminService {
 	// Método para añadir un nuevo personaje
 	public void addCharacter(Characters character) throws SQLException {
 	    try (Connection conn = DBConnection.getConnection()) {
-	        String sql = "INSERT INTO characters (name_character, univers_character, health_character, attack_character, defense_character, speed_character, stamina_character, intelligence_character, special_character) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	        String sql = "INSERT INTO characters (name_character, category_character, univers_character, health_character, attack_character, defense_character, speed_character, stamina_character, intelligence_character, special_character, image_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	        try (PreparedStatement statement = conn.prepareStatement(sql)) {
 	            statement.setString(1, character.getNameCharacter());
-	            statement.setString(2, character.getUniversCharacter());
-	            statement.setDouble(3, character.getHealthCharacter());
-	            statement.setDouble(4, character.getAttackCharacter());
-	            statement.setDouble(5, character.getDefenseCharacter());
-	            statement.setDouble(6, character.getSpeedCharacter());
-	            statement.setDouble(7, character.getStaminaCharacter());
-	            statement.setDouble(8, character.getIntelligenceCharacter());
-	            statement.setDouble(9, character.getSpecialCharacter());
+	            statement.setString(2, character.getCategoryCharacter());
+	            statement.setString(3, character.getUniversCharacter());
+	            statement.setDouble(4, character.getHealthCharacter());
+	            statement.setDouble(5, character.getAttackCharacter());
+	            statement.setDouble(6, character.getDefenseCharacter());
+	            statement.setDouble(7, character.getSpeedCharacter());
+	            statement.setDouble(8, character.getStaminaCharacter());
+	            statement.setDouble(9, character.getIntelligenceCharacter());
+	            statement.setDouble(10, character.getSpecialCharacter());
+	            statement.setString(11, character.getImageUrl());
 
 	            statement.executeUpdate();
 	        }
@@ -44,6 +46,7 @@ public class AdminService {
                         Characters character = new Characters();
                         character.setIdCharacter(rs.getInt("id_character"));
                         character.setNameCharacter(rs.getString("name_character"));
+                        character.setCategoryCharacter(rs.getString("category_character"));
                         character.setUniversCharacter(rs.getString("univers_character"));
                         character.setHealthCharacter(rs.getDouble("health_character"));
                         character.setAttackCharacter(rs.getDouble("attack_character"));
@@ -65,19 +68,21 @@ public class AdminService {
     // Método para actualizar un personaje
     public void updateCharacter(Characters character) throws SQLException {
         try (Connection conn = DBConnection.getConnection()) {
-            String sql = "UPDATE characters SET name_character = ?, univers_character = ?, health_character = ?, attack_character = ?, defense_character = ?, speed_character = ?, stamina_character = ?, intelligence_character = ?, special_character = ? WHERE id_character = ?";
+            String sql = "UPDATE characters SET name_character = ?, category_character = ?, univers_character = ?, health_character = ?, attack_character = ?, defense_character = ?, speed_character = ?, stamina_character = ?, intelligence_character = ?, special_character = ?, image_url = ? WHERE id_character = ?";
 
             try (PreparedStatement statement = conn.prepareStatement(sql)) {
                 statement.setString(1, character.getNameCharacter());
-                statement.setString(2, character.getUniversCharacter());
-                statement.setDouble(3, character.getHealthCharacter());
-                statement.setDouble(4, character.getAttackCharacter());
-                statement.setDouble(5, character.getDefenseCharacter());
-                statement.setDouble(6, character.getSpeedCharacter());
-                statement.setDouble(7, character.getStaminaCharacter());
-                statement.setDouble(8, character.getIntelligenceCharacter());
-                statement.setDouble(9, character.getSpecialCharacter());
-                statement.setInt(10, character.getIdCharacter());
+                statement.setString(2, character.getCategoryCharacter());
+                statement.setString(3, character.getUniversCharacter());
+                statement.setDouble(4, character.getHealthCharacter());
+                statement.setDouble(5, character.getAttackCharacter());
+                statement.setDouble(6, character.getDefenseCharacter());
+                statement.setDouble(7, character.getSpeedCharacter());
+                statement.setDouble(8, character.getStaminaCharacter());
+                statement.setDouble(9, character.getIntelligenceCharacter());
+                statement.setDouble(10, character.getSpecialCharacter());
+                statement.setString(11, character.getImageUrl());
+                statement.setInt(12, character.getIdCharacter());
 
                 statement.executeUpdate();
             }
@@ -110,6 +115,7 @@ public class AdminService {
                         character = new Characters();
                         character.setIdCharacter(rs.getInt("id_character"));
                         character.setNameCharacter(rs.getString("name_character"));
+                        character.setCategoryCharacter(rs.getString("category_character"));
                         character.setUniversCharacter(rs.getString("univers_character"));
                         character.setHealthCharacter(rs.getDouble("health_character"));
                         character.setAttackCharacter(rs.getDouble("attack_character"));
@@ -118,6 +124,7 @@ public class AdminService {
                         character.setStaminaCharacter(rs.getDouble("stamina_character"));
                         character.setIntelligenceCharacter(rs.getDouble("intelligence_character"));
                         character.setSpecialCharacter(rs.getDouble("special_character"));
+                        character.setImageUrl(rs.getString(("image_url")));
                     }
                 }
             }

@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="General.css">
-    <title>List of Characters</title>
+    <title>Lista de Personajes</title>
 </head>
 <body>
-    <h1>Character List</h1>
+    <h1>Personajes</h1>
     <ul id="characterList"></ul>
 
     <script>
         // Pide la lista de personajes al servirdor
         function fetchCharacters() {
-            fetch('/admin/characters?action=list')
+            fetch('/EpicB/AdminServlet?action=list')
                 .then(response => response.json())
                 .then(data => {
                     const characterListElement = document.getElementById('characterList');
